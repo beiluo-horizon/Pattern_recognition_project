@@ -51,9 +51,13 @@ if __name__ == '__main__':
             }
     
     jsonfilename = file_address_parent+'/information/'+Data_name+'_original_'+'_information'+'.json'
+    op_path =  file_address_parent+'/information/'+'op_'+'information'+'.json'
+    last_op = {'Data_name':Data_name}
+    with open (op_path,'w') as write_op:
+        json.dump(last_op,write_op)
     with open (jsonfilename,'w') as obj:
         json.dump(data_shape,obj)
     np.savetxt(Save_path+'/'+Data_name+'_Selected_'+'data.csv', original_data, delimiter = ',')
-    np.savetxt(Save_path_label+'/'+Data_name+'_Selected_'+'Label'+'.csv', original_label, delimiter = ',')
+    np.savetxt(Save_path_label+'/'+Data_name+'_Selected_'+'label'+'.csv', original_label, delimiter = ',')
     
     

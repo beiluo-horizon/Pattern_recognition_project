@@ -54,6 +54,12 @@ if __name__ == '__main__':
             }
     
     jsonfilename = file_address_parent+'/information/'+Data_name+'_Scaler_'+'information'+'.json'
+    op_path =  file_address_parent+'/information/'+'op_'+'information'+'.json'
+    with open (op_path,'r') as read_op:
+        last_op = json.load(read_op)
+        last_op['preprocess'] = 'Scaler'
+    with open (op_path,'w') as write_op:
+        json.dump(last_op,write_op)
     with open (jsonfilename,'w') as obj:
         json.dump(data_shape,obj)
         
